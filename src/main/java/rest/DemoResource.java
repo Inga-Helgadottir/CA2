@@ -26,7 +26,7 @@ import utils.EMF_Creator;
  */
 @Path("info")
 public class DemoResource {
-    
+
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     @Context
@@ -95,29 +95,27 @@ public class DemoResource {
 
     public JsonObject getFromAPI() {
         try {
-            URL url = new URL(" https://pokeapi.co/api/v2/pokemon?limit=10&offset=0");//your url i.e fetch data from .
+            URL url = new URL("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0");//your url i.e fetch data from .
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
+            conn.setRequestProperty("User-Agent", "server");
+            conn.setRequestProperty("Accept", "application/json;charset=UTF-8");
             if (conn.getResponseCode() != 200) {
                 throw new RuntimeException("Failed : HTTP Error code : "
                         + conn.getResponseCode());
             }
             InputStreamReader in = new InputStreamReader(conn.getInputStream());
             BufferedReader br = new BufferedReader(in);
-            String output;
-            while ((output = br.readLine()) != null) {
-                System.out.println(output);
-                JsonObject convertedObject = new Gson().fromJson(output, JsonObject.class);
-
-                return convertedObject;
-            }
+            String output = br.readLine();
+            JsonObject convertedObject = new Gson().fromJson(output, JsonObject.class);
             conn.disconnect();
+            return convertedObject;
 
         } catch (Exception e) {
             System.out.println("Exception in NetClientGet:- " + e);
+            JsonObject error = new Gson().fromJson(new Gson().toJson(e), JsonObject.class);
+            return error;
         }
-        return null;
     }
 
     public JsonObject getFromAPI2() {
@@ -132,18 +130,15 @@ public class DemoResource {
             }
             InputStreamReader in = new InputStreamReader(conn.getInputStream());
             BufferedReader br = new BufferedReader(in);
-            String output;
-            while ((output = br.readLine()) != null) {
-                System.out.println(output);
-                JsonObject convertedObject = new Gson().fromJson(output, JsonObject.class);
-
-                return convertedObject;
-            }
+            String output = br.readLine();
+            JsonObject convertedObject = new Gson().fromJson(output, JsonObject.class);
             conn.disconnect();
+            return convertedObject;
 
         } catch (Exception e) {
             System.out.println("Exception in NetClientGet:- " + e);
+            JsonObject error = new Gson().fromJson(new Gson().toJson(e), JsonObject.class);
+            return error;
         }
-        return null;
     }
 }
