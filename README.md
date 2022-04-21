@@ -8,12 +8,14 @@ This project requires that you have a functional droplet up and running with tom
 
 in line 6 
 
-<artifactId>devops-starter</artifactId>
-
+```html
+    <artifactId>devops-starter</artifactId>
+```
 to 
 
-<artifactId>name of project</artifactId>
-
+```html
+    <artifactId>name of project</artifactId>
+```
 in line 19
 
 <remote.server>https://edu.bugelhartmann.dk/manager/text</remote.server>
