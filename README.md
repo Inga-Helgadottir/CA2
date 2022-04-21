@@ -5,6 +5,15 @@ This project requires that you have a functional droplet up and running with tom
 ## To deploy with a push to github
 
 ### Change the following lines in the pom.xml file
+
+in line 6 
+
+<artifactId>devops-starter</artifactId>
+
+to 
+
+<artifactId>name of project</artifactId>
+
 in line 19
 
 <remote.server>https://edu.bugelhartmann.dk/manager/text</remote.server>
