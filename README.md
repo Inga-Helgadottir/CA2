@@ -45,6 +45,8 @@ remember not to put that on github if it is sensitive
 
 you can do the same with the test database (src/main/java/utils/SetupTestUsers.java)
 
+When you store passwords in the database they get hashed so that if someone hacks the database they cant see your real password
+
 ### The available REST endpoints
 
 #### api/login
