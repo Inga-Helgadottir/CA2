@@ -123,7 +123,8 @@ public class DemoResource {
             URL url = new URL("https://swapi.dev/api/people/1");//your url i.e fetch data from .
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
+            conn.setRequestProperty("User-Agent", "server");
+            conn.setRequestProperty("Accept", "application/json;charset=UTF-8");
             if (conn.getResponseCode() != 200) {
                 throw new RuntimeException("Failed : HTTP Error code : "
                         + conn.getResponseCode());

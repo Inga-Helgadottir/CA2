@@ -18,20 +18,11 @@ to
 ```
 in line 19
 
-<remote.server>https://edu.bugelhartmann.dk/manager/text</remote.server>
-
-to 
 
 <remote.server>Your domain name here</remote.server>
 
-and
-
 
 in line 23
-
-<db.name>CA2</db.name>
-
-to
 
 <db.name>Your database name here</db.name>
 
