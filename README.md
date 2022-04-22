@@ -1,4 +1,5 @@
-This project requires that you have a functional droplet up and running with tomcat and SQL
+*This project requires that you have a functional droplet up and running with tomcat and SQL
+*right now the project actions wil fail
 
 # How to use the startcode
 
@@ -25,6 +26,18 @@ in line 19
 in line 23
 
 <db.name>Your database name here</db.name>
+
+#### change secrets
+
+go to your github project settings, secrets, actions and make 2 secrets
+
+REMOTE_USER
+
+and set it to the username of your tomcat
+
+REMOTE_PW
+
+and set it to the password for your tomcat
 
 ### Making a database
 
