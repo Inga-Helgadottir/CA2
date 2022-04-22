@@ -50,6 +50,7 @@ public class User implements Serializable {
   public User() {}
 
    public boolean verifyPassword(String pw){
+    
         return BCrypt.checkpw(pw, userPass);
     }
 
